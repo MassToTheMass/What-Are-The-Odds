@@ -152,7 +152,7 @@ int main() {
         {"Go through a drive through shirtless on the hood of your car with the card in your mouth and smooth jazz.", 25},
         {"Run half a mile in a just speedo", 50},
         {"Drink a gallon of milk", 50},
-        {"Skinny dip the nearest pond", 75},
+        {"Skinny dip the nearest pond", 50},
         {"Jump in a pool fully clothed", 50},
         {"Lick someones toes", 50},
         {"Kiss a stranger", 50},
@@ -162,8 +162,21 @@ int main() {
         {"Kiss someones mother", 25},
         {"Crawl a lap around the school", 10},
         {"Ask a random person on a date until they say yes, then go on the date", 25},
-        {""}
-
+        {"Go to a retail store dressed as an employee and work for an hour", 25},
+        {"Bring nothing but a hammock and blankets and sleep in the woods for a night", 100},
+        {"Polar plunge in 3 rivers in one night (ward canyon, holbrook, and mueller park)", 50},
+        {"Do a polar plunge", 25},
+        {"Skinny dip a polar plunge", 75},
+        {"Hug a deer", 100},
+        {"Kiss a horse", 100},
+        {"Getting a shot from the med class", 50},
+        {"Kiss someone of the same gender", 50},
+        {"Wear 3in inseam shorts to school", 100},
+        {"Dress like a furry for a day", 75},
+        {"Do a 10 minutes stand-up comedy to a large crowd (20+ ppl)", 10},
+        {"Ask a random person for water at their house", 50},
+        {"Put an eos treadmill to max speed and run until you collapse/fall off", 100},
+        {"Sphagetti Kiss", 50}
 
     };
 
