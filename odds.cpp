@@ -10,6 +10,24 @@ struct Dare {
     int probability;
 };
 
+// Function to get the difficulty name based on the probability
+std::string getDifficultyName(int probability) {
+    switch (probability) {
+        case 10:
+            return "Easy";
+        case 25:
+            return "Medium";
+        case 50:
+            return "Hard";
+        case 75:
+            return "Extreme";
+        case 100:
+            return "Diabolical";
+        default:
+            return "";
+    }
+}
+
 // Function to display the main menu
 void displayMenu() {
     std::cout << "Welcome to What Are The Odds!" << std::endl;
@@ -23,22 +41,20 @@ void displayMenu() {
 void displayDifficultyMenu() {
     std::cout << "Select a difficulty level:" << std::endl;
     std::cout << "-------------------------------" << std::endl;
-    std::cout << "1. Easy (1/5)" << std::endl;
-    std::cout << "2. Medium (1/10)" << std::endl;
+    std::cout << "1. Easy (1/10)" << std::endl;
+    std::cout << "2. Medium (1/25)" << std::endl;
     std::cout << "3. Hard (1/50)" << std::endl;
-    std::cout << "4. Extreme (1/100)" << std::endl;
+    std::cout << "4. Extreme (1/75)" << std::endl;
+    std::cout << "5. Diabolical (1/100)" << std::endl;
     std::cout << "Enter your choice: ";
 }
 
 // Function to display the dare selection menu
 void displayDareMenu(const std::vector<Dare>& dares) {
-    std::cout << "Select a dare:" << std::endl;
-    std::cout << "-------------------------------" << std::endl;
-    for (int i = 0; i < dares.size(); i++) {
-        std::cout << i + 1 << ". " << dares[i].description << std::endl;
-    }
-    std::cout << dares.size() + 1 << ". Random Dare" << std::endl;
-    std::cout << "Enter your choice: ";
+    std::cout << "You have chosen the " << getDifficultyName(dares[0].probability) << " difficulty level." << std::endl;
+    std::cout << "Here is your dare:" << std::endl;
+    std::cout << dares[0].description << std::endl;
+    std::cout << "The odds are: 1/" << dares[0].probability << std::endl;
 }
 
 // Function to get a random dare from the given vector
@@ -56,40 +72,33 @@ void playGame(const std::vector<Dare>& dares) {
     switch (difficulty) {
         case 1:
             for (const auto& dare : dares) {
-                if (dare.probability == 5) {
+                if (dare.probability == 10) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         case 2:
             for (const auto& dare : dares) {
-                if (dare.probability == 10) {
+                if (dare.probability == 25) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         case 3:
             for (const auto& dare : dares) {
-                if (dare.probability == 25) {
+                if (dare.probability == 50) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         case 4:
             for (const auto& dare : dares) {
-                if (dare.probability == 50) {
-                    selectedDares.push_back(dare);
-                }
-            }
-            break;
-        case 5:
-            for (const auto& dare : dares) {
                 if (dare.probability == 75) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
-        case 6:
+        case 5:
             for (const auto& dare : dares) {
                 if (dare.probability == 100) {
                     selectedDares.push_back(dare);
@@ -101,22 +110,9 @@ void playGame(const std::vector<Dare>& dares) {
             return;
     }
 
-    int dareChoice;
-    displayDareMenu(selectedDares);
-    std::cin >> dareChoice;
+    Dare selectedDare = getRandomDare(selectedDares);
 
-    Dare selectedDare;
-    if (dareChoice == selectedDares.size() + 1) {
-        selectedDare = getRandomDare(selectedDares);
-    } else if (dareChoice > 0 && dareChoice <= selectedDares.size()) {
-        selectedDare = selectedDares[dareChoice - 1];
-    } else {
-        std::cout << "Invalid dare choice." << std::endl;
-        return;
-    }
-
-    std::cout << "You have chosen: " << selectedDare.description << std::endl;
-    std::cout << "The odds are: 1/" << selectedDare.probability << std::endl;
+    displayDareMenu({selectedDare});
 
     int userNumber;
     std::cout << "Enter a number between 1 and " << selectedDare.probability << ": ";
@@ -177,7 +173,6 @@ int main() {
         {"Ask a random person for water at their house", 50},
         {"Put an eos treadmill to max speed and run until you collapse/fall off", 100},
         {"Sphagetti Kiss", 50}
-
     };
 
     int choice;
