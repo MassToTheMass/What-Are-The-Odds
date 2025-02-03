@@ -159,7 +159,11 @@ int main() {
         {"Run a 5k", 50},
         {"Complete Sprite and Banana Challenge", 50},
         {"Shotgun Gingerale", 10},
-        {"Kiss someones mother", 25}
+        {"Kiss someones mother", 25},
+        {"Crawl a lap around the school", 10},
+        {"Ask a random person on a date until they say yes, then go on the date", 25},
+        {""}
+
 
     };
 
