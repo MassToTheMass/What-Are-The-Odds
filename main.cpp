@@ -4,14 +4,7 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
-
-// Define a structure to represent a dare, which consists of a description and a probability
-struct Dare {
-    // Description of the dare
-    std::string description;
-    // Probability of the dare being chosen (higher values mean lower probability)
-    int probability;
-};
+#include "dares/dareManager.hpp"
 
 // Function to get the difficulty name based on the probability
 // This function takes an integer probability as input and returns a string representing the difficulty level
@@ -74,13 +67,13 @@ void displayDifficultyMenu() {
 // This function takes a vector of dares as input and prints the selected dare to the console
 void displayDareMenu(const std::vector<Dare>& dares) {
     // Print a message indicating the selected difficulty level
-    std::cout << "You have chosen the " << getDifficultyName(dares[0].probability) << " difficulty level." << std::endl;
+    std::cout << "You have chosen the " << getDifficultyName(dares[0].getProbability()) << " difficulty level." << std::endl;
     // Print a message indicating the selected dare
     std::cout << "Here is your dare:" << std::endl;
     // Print the description of the selected dare
     std::cout << dares[0].description << std::endl;
     // Print the odds of the selected dare
-    std::cout << "The odds are: 1/" << dares[0].probability << std::endl;
+    std::cout << "The odds are: 1/" << dares[0].getProbability() << std::endl;
 }
 
 // Function to get a random dare from the given vector
