@@ -63,20 +63,20 @@ void displayDifficultyMenu() {
 
 // Function to display the dare selection menu
 // This function takes a vector of dares as input and prints the selected dare to the console
-void displayDareMenu(const std::vector<Dare>& dares) {
+void displayDareMenu(std::vector<Dare>& dares) {
     // Print a message indicating the selected difficulty level
     std::cout << "You have chosen the " << getDifficultyName(dares[0].getProbability()) << " difficulty level." << std::endl;
     // Print a message indicating the selected dare
     std::cout << "Here is your dare:" << std::endl;
     // Print the description of the selected dare
-    std::cout << dares[0].description << std::endl;
+    std::cout << dares[0].getDescription() << std::endl;
     // Print the odds of the selected dare
     std::cout << "The odds are: 1/" << dares[0].getProbability() << std::endl;
 }
 
 // Function to get a random dare from the given vector
 // This function takes a vector of dares as input and returns a random dare
-Dare getRandomDare(const std::vector<Dare>& dares) {
+Dare getRandomDare(std::vector<Dare>& dares) {
     // Use the rand function to generate a random index into the vector
     // The rand function generates a random integer between 0 and RAND_MAX
     // We use the modulo operator to ensure the index is within the bounds of the vector
@@ -85,7 +85,7 @@ Dare getRandomDare(const std::vector<Dare>& dares) {
 
 // Function to play the game
 // This function takes a vector of dares as input and plays the game
-void playGame(const std::vector<Dare>& dares) {
+void playGame(std::vector<Dare>& dares) {
     // Declare a variable to store the user's difficulty choice
     int difficulty;
     // Display the difficulty menu
@@ -99,40 +99,40 @@ void playGame(const std::vector<Dare>& dares) {
     switch (difficulty) {
         // If the user chose Easy, select dares with a probability of 10
         case 1:
-            for (const auto& dare : dares) {
-                if (dare.probability == 10) {
+            for (auto& dare : dares) {
+                if (dare.getProbability() == 10) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         // If the user chose Medium, select dares with a probability of 25
         case 2:
-            for (const auto& dare : dares) {
-                if (dare.probability == 25) {
+            for (auto& dare : dares) {
+                if (dare.getProbability() == 25) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         // If the user chose Hard, select dares with a probability of 50
         case 3:
-            for (const auto& dare : dares) {
-                if (dare.probability == 50) {
+            for (auto& dare : dares) {
+                if (dare.getProbability() == 50) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         // If the user chose Extreme, select dares with a probability of 75
         case 4:
-            for (const auto& dare : dares) {
-                if (dare.probability == 75) {
+            for (auto& dare : dares) {
+                if (dare.getProbability() == 75) {
                     selectedDares.push_back(dare);
                 }
             }
             break;
         // If the user chose Diabolical, select dares with a probability of 100
         case 5:
-            for (const auto& dare : dares) {
-                if (dare.probability == 100) {
+            for (auto& dare : dares) {
+                if (dare.getProbability() == 100) {
                     selectedDares.push_back(dare);
                 }
             }
@@ -152,12 +152,12 @@ void playGame(const std::vector<Dare>& dares) {
     // Declare a variable to store the user's number
     int userNumber;
     // Prompt the user to enter a number between 1 and the probability of the selected dare
-    std::cout << "Enter a number between 1 and " << selectedDare.probability << ": ";
+    std::cout << "Enter a number between 1 and " << selectedDare.getProbability() << ": ";
     // Read the user's number from the console
     std::cin >> userNumber;
 
     // Check if the user's number is within the valid range
-    if (userNumber < 1 || userNumber > selectedDare.probability) {
+    if (userNumber < 1 || userNumber > selectedDare.getProbability()) {
         // If the number is not valid, print an error message and return
         std::cout << "Invalid number." << std::endl;
         return;
@@ -166,7 +166,7 @@ void playGame(const std::vector<Dare>& dares) {
     // Seed the random number generator with the current time
     srand(time(0));
     // Generate a random number between 1 and the probability of the selected dare
-    int computerNumber = rand() % selectedDare.probability + 1;
+    int computerNumber = rand() % selectedDare.getProbability() + 1;
 
     // Print the computer's number
     std::cout << "The computer has chosen: " << computerNumber << std::endl;
