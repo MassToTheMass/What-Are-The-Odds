@@ -33,27 +33,25 @@ std::string getDifficultyName(int probability) {
 }
 
 // Function to display the main menu
-// This function prints the main menu options to the console
 void displayMenu() {
-    // Print a welcome message
     std::cout << "Welcome to What Are The Odds!" << std::endl;
-    // Print a separator line
+    
     std::cout << "-------------------------------" << std::endl;
-    // Print the main menu options
+    
     std::cout << "1. Play Game" << std::endl;
     std::cout << "2. Exit" << std::endl;
-    // Prompt the user to enter their choice
+    
     std::cout << "Enter your choice: ";
 }
 
 // Function to display the difficulty menu
 // This function prints the difficulty menu options to the console
 void displayDifficultyMenu() {
-    // Print a prompt to select a difficulty level
+
     std::cout << "Select a difficulty level:" << std::endl;
-    // Print a separator line
+
     std::cout << "-------------------------------" << std::endl;
-    // Print the difficulty menu options
+
     std::cout << "1. Easy (1/10)" << std::endl;
     std::cout << "2. Medium (1/25)" << std::endl;
     std::cout << "3. Hard (1/50)" << std::endl;
