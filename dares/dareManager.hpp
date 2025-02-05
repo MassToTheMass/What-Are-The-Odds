@@ -1,5 +1,3 @@
-#include <string>
-#pragma once
 
 class Dare {
     private:
