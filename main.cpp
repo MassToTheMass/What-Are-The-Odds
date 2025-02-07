@@ -77,10 +77,7 @@ void displayDareMenu(std::vector<Dare>& dares) {
 
 // Function to get a random dare from the given vector
 // This function takes a vector of dares as input and returns a random dare
-Dare getRandomDare(std::vector<Dare>& dares) {
-    // Use the rand function to generate a random index into the vector
-    // The rand function generates a random integer between 0 and RAND_MAX
-    // We use the modulo operator to ensure the index is within the bounds of the vector
+Dare getRandomDare(const std::vector<Dare>& dares) {
     return dares[rand() % dares.size()];
 }
 
