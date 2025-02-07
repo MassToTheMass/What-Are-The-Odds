@@ -1,6 +1,10 @@
 #include <map>
 #include <set>
+#include <iostream>
+#include <experimental/filesystem>
 #include "dares/dareManager.hpp"
+
+namespace fs = std::experimental::filesystem;
 
 class Game {
 
@@ -10,5 +14,9 @@ class Game {
 
 
     public:
-        Game() {}
-}
+        Game() {
+            for (const auto & entry : fs::directory_iterator("dares/dare_text_files")) {
+                std::cout << entry << std::endl;
+            }
+        }
+};

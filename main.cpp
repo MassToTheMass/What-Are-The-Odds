@@ -5,6 +5,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "dares/dareManager.hpp"
+#include "gameClass.hpp"
 
 // Function to get the difficulty name based on the probability
 // This function takes an integer probability as input and returns a string representing the difficulty level
@@ -183,6 +184,10 @@ void playGame(std::vector<Dare>& dares) {
 
 // Main function
 int main() {
+
+    Game myInstance();
+
+
     // Declare a vector to store the dares
     std::vector<Dare> dares = {
         // List of dares with their descriptions and probabilities
